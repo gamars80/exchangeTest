@@ -1,2 +1,2 @@
 #!/bin/bash
-mvn clean install -f ../pom.xml
+mvn clean install -P dev -f ../pom.xml

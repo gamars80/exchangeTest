@@ -590,5 +590,27 @@
         </dependency>
 			
     </dependencies>
-
+	
+	<profiles>
+	    <profile>
+	        <id>dev</id>
+	        <properties>
+	            <env>dev</env>	       
+	        </properties>
+	        <build>
+	            <directory>${deploy.target.directory}</directory>
+	            <plugins>
+			        <plugin>
+			            <groupId>org.apache.maven.plugins</groupId>
+			            <artifactId>maven-war-plugin</artifactId>
+			            <configuration>
+			                <outputDirectory>/home/ubuntu/exchange_calc</outputDirectory>
+			                <warName>${war.file.name}</warName>
+			            </configuration>
+			        </plugin>
+			    </plugins>
+	        </build>
+	    </profile>
+	  
+	</profiles>
 </project>

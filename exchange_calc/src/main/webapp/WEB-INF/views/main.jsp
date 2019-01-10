@@ -82,11 +82,13 @@ var formatter = new Intl.NumberFormat('en-US', {
  
  
 function comma(val){
+	
   var tmp = /(^[+-]?\d+)(\d{3})/;
      var result = val + '';
    while (tmp.test(result)) {
-	   result = result.replace(tmp, '$1' + ',' + '$2');
+	   result = result.replace(tmp, ',');
    }
+   result = result.replace('$','');
    return result;
 }
 
@@ -98,7 +100,7 @@ function comma(val){
    		<select name="country" id="country">
    			<option value="">:::선택:::</option>
    			<option value="USDKRW">KRW/USD</option>
-   			<option value="USDJPN">JPN/USD</option>
+   			<option value="USDJPY">JPY/USD</option>
    			<option value="USDJPHP">PHP/USD</option>
    		</select>
    </div>
