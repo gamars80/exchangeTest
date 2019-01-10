@@ -92,6 +92,34 @@ function comma(val){
    return result;
 }
 
+
+//숫자만 들어오는 경우를 체크
+function onlynumber(e) {
+	var input = e.target;
+	var key = e.key;
+	var keyCode = e.keyCode;
+	
+	if(!inputKeyNumberCheck(key, keyCode)) {
+		e.preventDefault();
+	}
+}
+
+//preventDefault 를 하여도 한글이 입력되는 문제때문에 추가
+function removeChar(e) {
+	var key = e.keyCode;
+	var input = e.target;
+
+	switch (true) {
+	case key === 'ArrowRight':
+	case key === 'ArrowLeft':
+	case key === 'Backspace':
+		return;
+	default: 
+		input.value = input.value.replace(/[^0-9]/g, '');
+	}
+}
+
+
 </script>
 <div class="container" style="width:50%;">
    <h1>환율 계산</h1>
@@ -107,7 +135,7 @@ function comma(val){
    <div>
    		환율 : <span id="exchange"></span>
    </div>
-   <div>송금액 : <input type="number" name="sendPrice" id="sendPrice" value="0" maxlength="5"> USD</div>
+   <div>송금액 : <input type="number" onkeydown="onlynumber(event)" onkeyup="removeChar(event)" name="sendPrice" id="sendPrice" value="0" maxlength="5"> USD</div>
    <div style="display:none;font-size:0.9em;color:red;text-align:left;" id="errPrice"></div>
    <br/><div><input type="button" value="submit" onclick="javascript:exchange();"></div>
    
