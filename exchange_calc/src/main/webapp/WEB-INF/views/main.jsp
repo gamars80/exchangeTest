@@ -80,6 +80,7 @@ var formatter = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 2,
  });
  
+ //
  
 function comma(val){
 	
