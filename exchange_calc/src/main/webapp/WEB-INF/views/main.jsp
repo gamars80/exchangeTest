@@ -80,8 +80,8 @@ var formatter = new Intl.NumberFormat('en-US', {
     minimumFractionDigits: 2,
  });
  
- //
  
+//콤마처리 
 function comma(val){
 	
   var tmp = /(^[+-]?\d+)(\d{3})/;
