@@ -88,6 +88,7 @@ function comma(val){
    while (tmp.test(result)) {
 	   result = result.replace(tmp, ',');
    }
+   //test
    result = result.replace('$','');
    return result;
 }
